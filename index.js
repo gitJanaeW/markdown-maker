@@ -1,7 +1,9 @@
 const fs = require('fs');
+
 const inquirer = require('inquirer'); // installed with "npm i inquirer@8.2.4"
 
-const {writeFile, copyFile} = require('./utils/generateMd.js');
+const generateMd = require('./utils/generateMd.js')
+const {writeFile} = require('./utils/writeFile.js');
 
 const questions = () => {
     return inquirer.prompt([
@@ -27,6 +29,12 @@ const questions = () => {
         },
         {
             type: 'checkbox',
+            name: 'liscense',
+            message: 'What type of license does your project have?',
+            choices: ['MIT', 'other options idk']
+        },
+        {
+            type: 'checkbox',
             name: 'technologies',
             message: 'What technologies did you use to build this project?',
             choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node.js']
@@ -39,18 +47,17 @@ const questions = () => {
         {
             type: 'input',
             name: 'usage',
-            message: 'Describe how to use your project, post download.'
+            message: 'Describe the purpose of using your application.'
         },
         {
-            type: 'checkbox',
-            name: 'liscense',
-            message: 'What type of license does your project have?',
-            choices: ['MIT', 'other options idk']
+            type: 'input',
+            name: 'test',
+            message: 'Describe how someone might test your product, post-download.'
         },
         {
             type: 'input',
             name: 'contributions',
-            message: 'What is your stance on contributions to this project?'
+            message: 'Describe your stance on contributions to this project?'
         },
         {
             type: 'confirm',
@@ -87,5 +94,11 @@ function init() {}
 // init();
 
 questions()
-    // .then(confirmVisualFile) // How do I add this in without breaking the .then chain?
-    .then(data => console.log(data));
+    // .then(data =>{
+        // confirmVisualFile(data)}) // How do I add this in without breaking the .then chain?
+    .then(data => {
+        return generateMd(data);
+    })
+    .then(file => {
+        return writeFile(file);
+    });
