@@ -1,9 +1,7 @@
-const fs = require('fs');
-
+const { writeFile } = require('fs');
 const inquirer = require('inquirer'); // installed with "npm i inquirer@8.2.4"
+const { generateMd } = require('./utils/generateMd.js');
 
-const generateMd = require('./utils/generateMd.js')
-const {writeFile} = require('./utils/writeFile.js');
 
 const questions = () => {
     return inquirer.prompt([
@@ -84,21 +82,24 @@ const confirmVisualFile = data => {
     }
 }
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// write README file
+function writeToFile(file) {
+    writeFile('./dist/README.md', generateMd(file), (err) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log("File successfully written");
+        }
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() { }
 
 // Function call to initialize app
 // init();
 
 questions()
-    // .then(data =>{
-        // confirmVisualFile(data)}) // How do I add this in without breaking the .then chain?
-    .then(data => {
-        return generateMd(data);
-    })
-    .then(file => {
-        return writeFile(file);
-    });
+    // .then(data => {
+    // confirmVisualFile(data)}) // How do I add this in without breaking the .then chain?
+    .then(file => writeToFile(file));
