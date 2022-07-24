@@ -13,43 +13,49 @@
 // TODO: Create a function to generate markdown for README
 function generateMd(data) {
     return `
-    ${data.license}
+![${data.license}](https://img.shields.io/static/v1?label=license&message=${data.license}&color=brightgreen&style=plastic)
     
-    # ${data.title}
+# ${data.title}
     
-    ## Table of Contents
+## Table of Contents
 
-    COMING SOON
+- Description
+- Technologies
+- Installation
+- Usage
+- Contributing
+- Tests
+- Questions
   
-    ## Description
+## Description
 
-    ${data.description}
+${data.description}
 
-    ## Technologoies
-    ${data.technologies.join("\n - ")}
+## Technologoies
+- ${data.technologies.join("\n - ")}
 
-    ## Installation
+## Installation
 
-    ${data.installation}
+${data.installation}
 
-    ## Usage
+## Usage
 
-    ${data.usage}
+${data.usage}
 
-    ## Contributing
+## Contributing
 
-    ${data.contributions}
+${data.contributions}
 
-    ## Tests
+## Tests
 
-    ${data.test}
+${data.test}
 
-    ## Questions
+## Questions
 
-    Please reach out with questions via GitHub or email:
-    - github.com/${data.github}
-    - ${data.email}
-`;
+Please reach out with questions via GitHub or email:
+- github.com/${data.github}
+- ${data.email}
+    `;
 }
 
 module.exports = {generateMd};
