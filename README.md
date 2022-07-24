@@ -43,3 +43,5 @@ To test the product, run the file in your terminal with the command "node .\inde
 Please reach out with questions via GitHub or email:
 - github.com/gitJanaeW
 - janae.wel@gmail.com
+
+![](./images/READMEdemo.gif)

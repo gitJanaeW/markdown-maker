@@ -20,6 +20,7 @@ A markdown maker that generates README.md files with ease!
 ## Technologoies
 - JavaScript
  - ES6
+ - Node.js
 
 ## Installation
 
@@ -27,15 +28,15 @@ To install, clone this file. Make sure you have Node.js and Inquirer version 8.2
 
 ## Usage
 
-This application creates a README.md without having to interact with markdown syntax.
+Use this application to create README.md files without having to interact with markdown syntax.
 
 ## Contributing
 
-To test the product, run the file in your terminal with the command "node .\index.js" and answer the ensuing prompt questions.
+Please feel free to suggest ways to make this project MORE amazing!!
 
 ## Tests
 
-Please feel free to suggest ways to make this project MORE than amazing!!
+To test the product, run the file in your terminal with the command "node .\index.js" and answer the ensuing prompt questions.
 
 ## Questions
 

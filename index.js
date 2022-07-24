@@ -136,13 +136,14 @@ const questions = () => {
                     return false;
                 }
             }
-        },
-        {
-            type: 'confirm',
-            name: 'visualConfirm',
-            message: 'Would you like to use a JPG, PNG or GIF in your README.md?',
-            default: false
         }
+        // ,
+        // {
+        //     type: 'confirm',
+        //     name: 'visualConfirm',
+        //     message: 'Would you like to use a JPG, PNG or GIF in your README.md?',
+        //     default: false
+        // }
     ]);
 }
 
